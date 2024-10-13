@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Empleado</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"></head></head>
+<body>
+    <div class="container mt-5">
+        <h2>Modificar Empleado</h2>
+        <form th:action="@{/empleado/editar_empleado/{id}(id=${empEncontrado.dniEmpleado})}" th:object="${empEncontrado}" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="dniEmpleado">Dni del empleado</label>
+                <input type="text" th:field="*{dniEmpleado}" class="form-control" id="dniEmpleado" required>
+            </div>
+            <div class="form-group">
+                <label for="nombreEmpleado">Nombre del empleado</label>
+                <input type="text" th:field="*{nombreEmpleado}" class="form-control" id="nombreEmpleado">
+            </div>
+            <div class="form-group">
+                <label for="apellidoEmpleado">Apellido del empleado</label>
+                <input type="text" th:field="*{apellidoEmpleado}" class="form-control" id="apellidoEmpleado" >
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" th:field="*{fechaNacimiento}" class="form-control" id="fechaNacimiento">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" th:field="*{direccion}" class="form-control" id="direccion" >
+            </div>
+            <div class="form-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" th:field="*{correo}" placeholder="Ingrese su correo electrónico" required>
+        	</div>
+            <div class="form-group">
+                <label for="areaEntity">Area</label>
+                <select th:field="*{areaEntity}" class="form-control" id="areaEntity" required>
+                    <option th:each="area : ${areas}" 
+                            th:value="${area.areaId}" 
+                            th:text="${area.nombreArea}">
+                    </option>
+                </select>
+            </div>
+            <a th:href="@{/empleado/}" class="btn btn-secondary">Regresar</a>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

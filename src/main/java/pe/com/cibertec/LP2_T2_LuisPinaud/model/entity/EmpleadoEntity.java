@@ -25,7 +25,7 @@ public class EmpleadoEntity {
 	private String apellidoEmpleado;
 	
 	@Column(name = "fecha_nacimiento", nullable = false)
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
 	@Column(name="direccion", length = 45, nullable = false)

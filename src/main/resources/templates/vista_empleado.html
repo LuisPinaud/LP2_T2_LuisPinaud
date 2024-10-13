@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de empleado</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Información del empleado</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" th:text="'Nombre: ' + ${empleado.nombreEmpleado}">No existe</h5>
+                <p class="card-text" th:text="'Dni del empleado: '+ ${empleado.dniEmpleado}"></p>
+                <p class="card-text" th:text="'Apellido del empleado: ' + ${empleado.apellidoEmpleado}"></p>
+                <p class="card-text" th:text="'Fecha de nacimiento: ' + ${empleado.fechaNacimiento}"></p>
+                <p class="card-text" th:text="'Dirección: ' + ${empleado.direccion}"></p>
+                <p class="card-text" th:text="'Correo: ' + ${empleado.correo}"></p>
+                <p class="card-text" th:text="'Area del empleado: ' + ${empleado.areaEntity.nombreArea}"></p>
+                
+                <a th:href="@{/empleado/}" class="btn btn-secondary">Regresar</a>
+                <a th:href="@{/empleado/delete/{id}(id=${empleado.dniEmpleado})}" class="btn btn-danger">Eliminar</a>
+            </div>
+        </div>
+    </div>
+        
+  <script src="/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>

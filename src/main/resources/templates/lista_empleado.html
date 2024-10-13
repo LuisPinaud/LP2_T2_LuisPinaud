@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Empleado</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Lista empleado</h2>
+
+		<a th:href="@{/empleado/registrar_empleado}" class="btn btn-primary">Registrar</a>
+        
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Dni Empleado</th>
+                    <th>Nombre Empleado</th>
+                    <th>Apellido Empleado</th>
+                    <th>Fecha nacimiento</th>
+                    <th>Direccion</th>
+                    <th>Correo</th>
+                    <th>Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="empleado : ${lstEmpleado}">
+                    <td th:text="${empleado.dniEmpleado}"></td>
+                    <td th:text="${empleado.nombreEmpleado}"></td>
+                    <td th:text="${empleado.apellidoEmpleado}"></td>
+                    <td th:text="${empleado.fechaNacimiento}"></td>
+                    <td th:text="${empleado.direccion}"></td>
+                    <td th:text="${empleado.correo}"></td>
+                    <td th:text="${empleado.areaEntity.nombreArea}"></td>
+                    <td>
+                    <a th:href="@{/empleado/ver_empleado/{id}(id=${empleado.dniEmpleado})}" class="btn btn-info">Ver</a> |
+                    <a th:href="@{/empleado/editar_empleado/{id}(id=${empleado.dniEmpleado})}" class="btn btn-warning">Editar</a>  
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
